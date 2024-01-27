@@ -1,0 +1,1595 @@
+------
+
+test> show dbs
+admin       40.00 KiB
+config      72.00 KiB
+consulting  80.00 KiB
+local       40.00 KiB
+school      56.00 KiB
+test> use consulting
+switched to db consulting
+consulting> show collections
+Business
+Technology
+consulting> db.Business.find({},{_id = false})
+...
+... )
+Uncaught:
+SyntaxError: Invalid shorthand property initializer. (1:25)
+
+> 1 | db.Business.find({},{_id = false})
+    |                          ^
+  2 |
+  3 | )
+  4 |
+
+consulting> db.Business.find({},{_id: false}) )
+Uncaught:
+SyntaxError: Missing semicolon. (1:33)
+
+> 1 | db.Business.find({},{_id: false}) )
+    |                                  ^
+  2 |
+
+consulting> db.Business.find({},{_id: false})
+[
+  {
+    name: 'Abraham',
+    age: 24,
+    DOB: ISODate('1997-05-16T00:00:00.000Z'),
+    complexion: 'fair',
+    age_category: 'youth'
+  },
+  {
+    name: 'Anjolaoluwa',
+    age: 21,
+    DOB: ISODate('1999-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'youth'
+  },
+  {
+    name: 'Tunmise',
+    age: 24,
+    DOB: ISODate('1994-11-15T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'youth'
+  },
+  {
+    name: 'Leke',
+    age: 31,
+    DOB: ISODate('1992-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'adult'
+  },
+  {
+    name: 'Lekan',
+    age: 33,
+    DOB: ISODate('1990-06-19T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'adult'
+  }
+]
+consulting> db.Business.find().pretty()
+[
+  {
+    _id: ObjectId('65a8e3e007a9c2ece4616a2f'),
+    name: 'Abraham',
+    age: 24,
+    DOB: ISODate('1997-05-16T00:00:00.000Z'),
+    complexion: 'fair',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a30'),
+    name: 'Anjolaoluwa',
+    age: 21,
+    DOB: ISODate('1999-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a31'),
+    name: 'Tunmise',
+    age: 24,
+    DOB: ISODate('1994-11-15T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a32'),
+    name: 'Leke',
+    age: 31,
+    DOB: ISODate('1992-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'adult'
+  },
+  {
+    _id: ObjectId('65a8eb1d07a9c2ece4616a33'),
+    name: 'Lekan',
+    age: 33,
+    DOB: ISODate('1990-06-19T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'adult'
+  }
+]
+consulting> db.Business.find()
+[
+  {
+    _id: ObjectId('65a8e3e007a9c2ece4616a2f'),
+    name: 'Abraham',
+    age: 24,
+    DOB: ISODate('1997-05-16T00:00:00.000Z'),
+    complexion: 'fair',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a30'),
+    name: 'Anjolaoluwa',
+    age: 21,
+    DOB: ISODate('1999-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a31'),
+    name: 'Tunmise',
+    age: 24,
+    DOB: ISODate('1994-11-15T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a32'),
+    name: 'Leke',
+    age: 31,
+    DOB: ISODate('1992-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'adult'
+  },
+  {
+    _id: ObjectId('65a8eb1d07a9c2ece4616a33'),
+    name: 'Lekan',
+    age: 33,
+    DOB: ISODate('1990-06-19T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'adult'
+  }
+]
+consulting> db.Business.find().pretty()
+[
+  {
+    _id: ObjectId('65a8e3e007a9c2ece4616a2f'),
+    name: 'Abraham',
+    age: 24,
+    DOB: ISODate('1997-05-16T00:00:00.000Z'),
+    complexion: 'fair',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a30'),
+    name: 'Anjolaoluwa',
+    age: 21,
+    DOB: ISODate('1999-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a31'),
+    name: 'Tunmise',
+    age: 24,
+    DOB: ISODate('1994-11-15T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a32'),
+    name: 'Leke',
+    age: 31,
+    DOB: ISODate('1992-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'adult'
+  },
+  {
+    _id: ObjectId('65a8eb1d07a9c2ece4616a33'),
+    name: 'Lekan',
+    age: 33,
+    DOB: ISODate('1990-06-19T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'adult'
+  }
+]
+consulting> db.Business.insertOne({_id: "tkeudnrfroi", name:"Wasola", age:22, DOB: new Date(2001-11-22),complexion: "fair"})
+{ acknowledged: true, insertedId: 'tkeudnrfroi' }
+consulting> db.Business.updateOne({
+consulting>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+consulting>
+
+C:\Windows\System32>mongosh
+Current Mongosh Log ID: 65ad191c8075a118285f0519
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1
+Using MongoDB:          7.0.5
+Using Mongosh:          2.1.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-01-08T19:24:26.222+01:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use consulting
+switched to db consulting
+consulting> db.Business.find()
+[
+  {
+    _id: ObjectId('65a8e3e007a9c2ece4616a2f'),
+    name: 'Abraham',
+    age: 24,
+    DOB: ISODate('1997-05-16T00:00:00.000Z'),
+    complexion: 'fair',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a30'),
+    name: 'Anjolaoluwa',
+    age: 21,
+    DOB: ISODate('1999-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a31'),
+    name: 'Tunmise',
+    age: 24,
+    DOB: ISODate('1994-11-15T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'youth'
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a32'),
+    name: 'Leke',
+    age: 31,
+    DOB: ISODate('1992-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'adult'
+  },
+  {
+    _id: ObjectId('65a8eb1d07a9c2ece4616a33'),
+    name: 'Lekan',
+    age: 33,
+    DOB: ISODate('1990-06-19T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'adult'
+  },
+  {
+    _id: 'tkeudnrfroi',
+    name: 'Wasola',
+    age: 22,
+    DOB: ISODate('1970-01-01T00:00:01.968Z'),
+    complexion: 'fair'
+  }
+]
+consulting> db.Business.updateOne({_id: 'tkeudnrfroi'}, {$set:{age_category:"youth"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+consulting> db.Business.find({_id: 'tkeudnrfroi'})
+[
+  {
+    _id: 'tkeudnrfroi',
+    name: 'Wasola',
+    age: 22,
+    DOB: ISODate('1970-01-01T00:00:01.968Z'),
+    complexion: 'fair',
+    age_category: 'youth'
+  }
+]
+consulting> db.Business.find().toArray()
+[
+  {
+    _id: ObjectId('65a8e3e007a9c2ece4616a2f'),
+    name: 'Abraham',
+    age: 24,
+    DOB: ISODate('1997-05-16T00:00:00.000Z'),
+    complexion: 'fair',
+    age_category: 'youth'
+  },
+
+consulting> db.Business.find().forEach((BusinessData) => {printjson(passengerData)})
+ReferenceError: passengerData is not defined
+consulting> db.Business.find().forEach((BusinessData) => {printjson(BusinessData)})
+{
+  _id: ObjectId('65a8e3e007a9c2ece4616a2f'),
+  name: 'Abraham',
+  age: 24,
+  DOB: ISODate('1997-05-16T00:00:00.000Z'),
+  complexion: 'fair',
+  age_category: 'youth'
+}
+{
+  _id: ObjectId('65a8e66a07a9c2ece4616a30'),
+  name: 'Anjolaoluwa',
+  age: 21,
+  DOB: ISODate('1999-11-15T00:00:00.000Z'),
+  complexion: 'brown',
+  age_category: 'youth'
+}
+{
+  _id: ObjectId('65a8e66a07a9c2ece4616a31'),
+  name: 'Tunmise',
+  age: 24,
+  DOB: ISODate('1994-11-15T00:00:00.000Z'),
+  complexion: 'dark',
+  age_category: 'youth'
+}
+{
+  _id: ObjectId('65a8e66a07a9c2ece4616a32'),
+  name: 'Leke',
+  age: 31,
+  DOB: ISODate('1992-11-15T00:00:00.000Z'),
+  complexion: 'brown',
+  age_category: 'adult'
+}
+{
+  _id: ObjectId('65a8eb1d07a9c2ece4616a33'),
+  name: 'Lekan',
+  age: 33,
+  DOB: ISODate('1990-06-19T00:00:00.000Z'),
+  complexion: 'dark',
+  age_category: 'adult'
+}
+{
+  _id: 'tkeudnrfroi',
+  name: 'Wasola',
+  age: 22,
+  DOB: ISODate('1970-01-01T00:00:01.968Z'),
+  complexion: 'fair',
+  age_category: 'youth'
+}
+
+consulting> db.Business.find({name:"Tunmise"})
+[
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a31'),
+    name: 'Tunmise',
+    age: 24,
+    DOB: ISODate('1994-11-15T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'youth'
+  }
+]
+consulting> db.Business.find({name:"Tunmise"}).age
+
+consulting> db.Business.find({name:"Tunmise"}).complexion
+
+consulting> db.Business.findOne({name:"Tunmise"}).complexion
+dark
+consulting> db.Business.UpdateMany({age: {$gte: 24}}, {$set: {hobbies: ["games", "swimming", "sleeping"]}})
+TypeError: db.Business.UpdateMany is not a function
+consulting> db.Business.updateMany({age: {$gte: 24}}, {$set: {hobbies: ["games", "swimming", "sleeping"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 4,
+  modifiedCount: 4,
+  upsertedCount: 0
+}
+consulting> db.Business.updateMany({age: {$lt: 24}}, {$set: {hobbies: ["movies", "cooking", "party"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+consulting> db.Business.find().toArray()
+[
+  {
+    _id: ObjectId('65a8e3e007a9c2ece4616a2f'),
+    name: 'Abraham',
+    age: 24,
+    DOB: ISODate('1997-05-16T00:00:00.000Z'),
+    complexion: 'fair',
+    age_category: 'youth',
+    hobbies: [ 'games', 'swimming', 'sleeping' ]
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a30'),
+    name: 'Anjolaoluwa',
+    age: 21,
+    DOB: ISODate('1999-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'youth',
+    hobbies: [ 'movies', 'cooking', 'party' ]
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a31'),
+    name: 'Tunmise',
+    age: 24,
+    DOB: ISODate('1994-11-15T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'youth',
+    hobbies: [ 'games', 'swimming', 'sleeping' ]
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a32'),
+    name: 'Leke',
+    age: 31,
+    DOB: ISODate('1992-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'adult',
+    hobbies: [ 'games', 'swimming', 'sleeping' ]
+  },
+  {
+    _id: ObjectId('65a8eb1d07a9c2ece4616a33'),
+    name: 'Lekan',
+    age: 33,
+    DOB: ISODate('1990-06-19T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'adult',
+    hobbies: [ 'games', 'swimming', 'sleeping' ]
+  },
+  {
+    _id: 'tkeudnrfroi',
+    name: 'Wasola',
+    age: 22,
+    DOB: ISODate('1970-01-01T00:00:01.968Z'),
+    complexion: 'fair',
+    age_category: 'youth',
+    hobbies: [ 'movies', 'cooking', 'party' ]
+  }
+]
+consulting> db.Business.find({hobbies : 'cooking'}).toArray()
+[
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a30'),
+    name: 'Anjolaoluwa',
+    age: 21,
+    DOB: ISODate('1999-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'youth',
+    hobbies: [ 'movies', 'cooking', 'party' ]
+  },
+  {
+    _id: 'tkeudnrfroi',
+    name: 'Wasola',
+    age: 22,
+    DOB: ISODate('1970-01-01T00:00:01.968Z'),
+    complexion: 'fair',
+    age_category: 'youth',
+    hobbies: [ 'movies', 'cooking', 'party' ]
+  }
+]
+consulting>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+consulting> db.Business.updateMany({complexion:"fair"}, {$set:{likes: {physical_touch: true, act_of_service:true,
+... gift:false,words:false, time:true}}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+consulting> db.Business.updateMany({ complexion: "brown" }, { $set: { likes: { physical_touch: true, act_of_service: false, gift: true, words: true, time: false } } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+consulting> db.Business.updateMany({ complexion: "dark" }, { $set: { likes: { physical_touch: false, act_of_service: false, gift: false, words: true, time: true } } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+consulting> db.Business.find().pretty()
+[
+  {
+    _id: ObjectId('65a8e3e007a9c2ece4616a2f'),
+    name: 'Abraham',
+    age: 24,
+    DOB: ISODate('1997-05-16T00:00:00.000Z'),
+    complexion: 'fair',
+    age_category: 'youth',
+    hobbies: [ 'games', 'swimming', 'sleeping' ],
+    likes: {
+      physical_touch: true,
+      act_of_service: true,
+      gift: false,
+      words: false,
+      time: true
+    }
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a30'),
+    name: 'Anjolaoluwa',
+    age: 21,
+    DOB: ISODate('1999-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'youth',
+    hobbies: [ 'movies', 'cooking', 'party' ],
+    likes: {
+      physical_touch: true,
+      act_of_service: false,
+      gift: true,
+      words: true,
+      time: false
+    }
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a31'),
+    name: 'Tunmise',
+    age: 24,
+    DOB: ISODate('1994-11-15T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'youth',
+    hobbies: [ 'games', 'swimming', 'sleeping' ],
+    likes: {
+      physical_touch: false,
+      act_of_service: false,
+      gift: false,
+      words: true,
+      time: true
+    }
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a32'),
+    name: 'Leke',
+    age: 31,
+    DOB: ISODate('1992-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'adult',
+    hobbies: [ 'games', 'swimming', 'sleeping' ],
+    likes: {
+      physical_touch: true,
+      act_of_service: false,
+      gift: true,
+      words: true,
+      time: false
+    }
+  },
+  {
+    _id: ObjectId('65a8eb1d07a9c2ece4616a33'),
+    name: 'Lekan',
+    age: 33,
+    DOB: ISODate('1990-06-19T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'adult',
+    hobbies: [ 'games', 'swimming', 'sleeping' ],
+    likes: {
+      physical_touch: false,
+      act_of_service: false,
+      gift: false,
+      words: true,
+      time: true
+    }
+  },
+  {
+    _id: 'tkeudnrfroi',
+    name: 'Wasola',
+    age: 22,
+    DOB: ISODate('1970-01-01T00:00:01.968Z'),
+    complexion: 'fair',
+    age_category: 'youth',
+    hobbies: [ 'movies', 'cooking', 'party' ],
+    likes: {
+      physical_touch: true,
+      act_of_service: true,
+      gift: false,
+      words: false,
+      time: true
+    }
+  }
+]
+consulting> db.Business.find({"likes.words":true})
+[
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a30'),
+    name: 'Anjolaoluwa',
+    age: 21,
+    DOB: ISODate('1999-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'youth',
+    hobbies: [ 'movies', 'cooking', 'party' ],
+    likes: {
+      physical_touch: true,
+      act_of_service: false,
+      gift: true,
+      words: true,
+      time: false
+    }
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a31'),
+    name: 'Tunmise',
+    age: 24,
+    DOB: ISODate('1994-11-15T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'youth',
+    hobbies: [ 'games', 'swimming', 'sleeping' ],
+    likes: {
+      physical_touch: false,
+      act_of_service: false,
+      gift: false,
+      words: true,
+      time: true
+    }
+  },
+  {
+    _id: ObjectId('65a8e66a07a9c2ece4616a32'),
+    name: 'Leke',
+    age: 31,
+    DOB: ISODate('1992-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'adult',
+    hobbies: [ 'games', 'swimming', 'sleeping' ],
+    likes: {
+      physical_touch: true,
+      act_of_service: false,
+      gift: true,
+      words: true,
+      time: false
+    }
+  },
+  {
+    _id: ObjectId('65a8eb1d07a9c2ece4616a33'),
+    name: 'Lekan',
+    age: 33,
+    DOB: ISODate('1990-06-19T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'adult',
+    hobbies: [ 'games', 'swimming', 'sleeping' ],
+    likes: {
+      physical_touch: false,
+      act_of_service: false,
+      gift: false,
+      words: true,
+      time: true
+    }
+  }
+]
+consulting> db.Business.find({"likes.words":true}, {_id:0, "likes.gift":0)
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:61)
+
+> 1 | db.Business.find({"likes.words":true}, {_id:0, "likes.gift":0)
+    |                                                              ^
+  2 |
+
+consulting> db.Business.find({"likes.words":true}, {_id:0, "likes.gift":0})
+[
+  {
+    name: 'Anjolaoluwa',
+    age: 21,
+    DOB: ISODate('1999-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'youth',
+    hobbies: [ 'movies', 'cooking', 'party' ],
+    likes: {
+      physical_touch: true,
+      act_of_service: false,
+      words: true,
+      time: false
+    }
+  },
+  {
+    name: 'Tunmise',
+    age: 24,
+    DOB: ISODate('1994-11-15T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'youth',
+    hobbies: [ 'games', 'swimming', 'sleeping' ],
+    likes: {
+      physical_touch: false,
+      act_of_service: false,
+      words: true,
+      time: true
+    }
+  },
+  {
+    name: 'Leke',
+    age: 31,
+    DOB: ISODate('1992-11-15T00:00:00.000Z'),
+    complexion: 'brown',
+    age_category: 'adult',
+    hobbies: [ 'games', 'swimming', 'sleeping' ],
+    likes: {
+      physical_touch: true,
+      act_of_service: false,
+      words: true,
+      time: false
+    }
+  },
+  {
+    name: 'Lekan',
+    age: 33,
+    DOB: ISODate('1990-06-19T00:00:00.000Z'),
+    complexion: 'dark',
+    age_category: 'adult',
+    hobbies: [ 'games', 'swimming', 'sleeping' ],
+    likes: {
+      physical_touch: false,
+      act_of_service: false,
+      words: true,
+      time: true
+    }
+  }
+]
+consulting> use hospital
+switched to db hospital
+hospital> db.createCollection('patients')
+{ ok: 1 }
+hospital> db.patients.insertOne({
+... "firstName": "Max",
+... "lastName": "Schwarzmueller",
+... "age": 29,
+... "history": [
+...     {"disease":"cold", "treatment":"Antibiotics"},
+...     {"disease":"Malaria", "treatment":"Anti-Malaria"}
+... ]
+... })
+{
+  acknowledged: true,
+  insertedId: ObjectId('65adb03c8075a118285f051a')
+}
+hospital> db.patients.find().pretty()
+[
+  {
+    _id: ObjectId('65adb03c8075a118285f051a'),
+    firstName: 'Max',
+    lastName: 'Schwarzmueller',
+    age: 29,
+    history: [
+      { disease: 'cold', treatment: 'Antibiotics' },
+      { disease: 'Malaria', treatment: 'Anti-Malaria' }
+    ]
+  }
+]
+hospital> db.patients.insertMany({
+... firstname: "Mini",
+... lastname: "Muller",
+... age: 42,
+... history: [
+...      {disease:"Malaria", treatment:"Anti-Malaria"},
+...      {disease:"diarrhoea", treatment:"Meds"},
+...      {disease:"rashes", treatment:"Cream"}]},
+... {
+... ... firstname: "Mini",
+Uncaught:
+SyntaxError: Unexpected token, expected "," (10:13)
+
+   8 |      {disease:"rashes", treatment:"Cream"}]},
+   9 | {
+> 10 | ... firstname: "Mini",
+     |              ^
+  11 |
+
+hospital> ... lastname: "Muller",
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | ... lastname: "Muller",
+    | ^
+  2 |
+
+hospital> ... age: 42,
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | ... age: 42,
+    | ^
+  2 |
+
+hospital> ... history: [
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | ... history: [
+    | ^
+  2 |
+
+hospital> ...      {disease:"Malaria", treatment:"Anti-Malaria"},
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | ...      {disease:"Malaria", treatment:"Anti-Malaria"},
+    | ^
+  2 |
+
+hospital> ...      {disease:"diarrhoea", treatment:"Meds"},
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | ...      {disease:"diarrhoea", treatment:"Meds"},
+    | ^
+  2 |
+
+hospital> ...      {disease:"rashes", treatment:"Cream"}]})
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | ...      {disease:"rashes", treatment:"Cream"}]})
+    | ^
+  2 |
+
+hospital> db.patients.insertMany({ firstname: "Mini", lastname: "Muller", age: 42, history: [ {disease:"Malaria", treatment:"Anti-Malaria"}, {disease:"diarrhoea", treatment:"Meds"}, {disease:"rashes", treatment:"Cream"}]}, {firstname:"Alfred", lastname:"Bonny", age:37, history: [{disease:"Rabies", treatment:"Anti-Rabies"}, {disease:"Anaemia",treatment:"Food"}]})
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+hospital> db.patients.insertMany([{ firstname: "Mini", lastname: "Muller", age: 42, history: [ {disease:"Malaria", treatment:"Anti-Malaria"}, {disease:"diarrhoea", treatment:"Meds"}, {disease:"rashes", treatment:"Cream"}]}, {firstname:"Alfred", lastname:"Bonny", age:37, history: [{disease:"Rabies", treatment:"Anti-Rabies"}, {disease:"Anaemia",treatment:"Food"}]}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65ae124f8075a118285f051b'),
+    '1': ObjectId('65ae124f8075a118285f051c')
+  }
+}
+hospital> db.patients.find().pretty()
+[
+  {
+    _id: ObjectId('65adb03c8075a118285f051a'),
+    firstName: 'Max',
+    lastName: 'Schwarzmueller',
+    age: 29,
+    history: [
+      { disease: 'cold', treatment: 'Antibiotics' },
+      { disease: 'Malaria', treatment: 'Anti-Malaria' }
+    ]
+  },
+  {
+    _id: ObjectId('65ae124f8075a118285f051b'),
+    firstname: 'Mini',
+    lastname: 'Muller',
+    age: 42,
+    history: [
+      { disease: 'Malaria', treatment: 'Anti-Malaria' },
+      { disease: 'diarrhoea', treatment: 'Meds' },
+      { disease: 'rashes', treatment: 'Cream' }
+    ]
+  },
+  {
+    _id: ObjectId('65ae124f8075a118285f051c'),
+    firstname: 'Alfred',
+    lastname: 'Bonny',
+    age: 37,
+    history: [
+      { disease: 'Rabies', treatment: 'Anti-Rabies' },
+      { disease: 'Anaemia', treatment: 'Food' }
+    ]
+  }
+]
+hospital> db.patients.updateOne({_id: ObjectId('65ae124f8075a118285f051c')}, {$set:{firstname:"Ike",age:38,"history.2.disease":"Madness", "history.2.treatment":"Prayers"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+hospital> db.patients.find().pretty()
+[
+  {
+    _id: ObjectId('65adb03c8075a118285f051a'),
+    firstName: 'Max',
+    lastName: 'Schwarzmueller',
+    age: 29,
+    history: [
+      { disease: 'cold', treatment: 'Antibiotics' },
+      { disease: 'Malaria', treatment: 'Anti-Malaria' }
+    ]
+  },
+  {
+    _id: ObjectId('65ae124f8075a118285f051b'),
+    firstname: 'Mini',
+    lastname: 'Muller',
+    age: 42,
+    history: [
+      { disease: 'Malaria', treatment: 'Anti-Malaria' },
+      { disease: 'diarrhoea', treatment: 'Meds' },
+      { disease: 'rashes', treatment: 'Cream' }
+    ]
+  },
+  {
+    _id: ObjectId('65ae124f8075a118285f051c'),
+    firstname: 'Ike',
+    lastname: 'Bonny',
+    age: 38,
+    history: [
+      { disease: 'Rabies', treatment: 'Anti-Rabies' },
+      { disease: 'Anaemia', treatment: 'Food' },
+      { disease: 'Madness', treatment: 'Prayers' }
+    ]
+  }
+]
+hospital> db.patients.find({age:{$gt:30}})
+[
+  {
+    _id: ObjectId('65ae124f8075a118285f051b'),
+    firstname: 'Mini',
+    lastname: 'Muller',
+    age: 42,
+    history: [
+      { disease: 'Malaria', treatment: 'Anti-Malaria' },
+      { disease: 'diarrhoea', treatment: 'Meds' },
+      { disease: 'rashes', treatment: 'Cream' }
+    ]
+  },
+  {
+    _id: ObjectId('65ae124f8075a118285f051c'),
+    firstname: 'Ike',
+    lastname: 'Bonny',
+    age: 38,
+    history: [
+      { disease: 'Rabies', treatment: 'Anti-Rabies' },
+      { disease: 'Anaemia', treatment: 'Food' },
+      { disease: 'Madness', treatment: 'Prayers' }
+    ]
+  }
+]
+hospital> db.patients.deleteOne({"history.disease":"cold"})
+{ acknowledged: true, deletedCount: 1 }
+hospital> db.patients.find().pretty()
+[
+  {
+    _id: ObjectId('65ae124f8075a118285f051b'),
+    firstname: 'Mini',
+    lastname: 'Muller',
+    age: 42,
+    history: [
+      { disease: 'Malaria', treatment: 'Anti-Malaria' },
+      { disease: 'diarrhoea', treatment: 'Meds' },
+      { disease: 'rashes', treatment: 'Cream' }
+    ]
+  },
+  {
+    _id: ObjectId('65ae124f8075a118285f051c'),
+    firstname: 'Ike',
+    lastname: 'Bonny',
+    age: 38,
+    history: [
+      { disease: 'Rabies', treatment: 'Anti-Rabies' },
+      { disease: 'Anaemia', treatment: 'Food' },
+      { disease: 'Madness', treatment: 'Prayers' }
+    ]
+  }
+]
+hospital>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+hospital>
+
+C:\Windows\System32>mongosh
+Current Mongosh Log ID: 65ae4d324b53a9195a33db90
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1
+Using MongoDB:          7.0.5
+Using Mongosh:          2.1.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-01-08T19:24:26.222+01:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+admin       40.00 KiB
+config      60.00 KiB
+consulting  80.00 KiB
+hospital    72.00 KiB
+local       40.00 KiB
+school      56.00 KiB
+test> db.stats()
+{
+  db: 'test',
+  collections: Long('0'),
+  views: Long('0'),
+  objects: Long('0'),
+  avgObjSize: 0,
+  dataSize: 0,
+  storageSize: 0,
+  indexes: Long('0'),
+  indexSize: 0,
+  totalSize: 0,
+  scaleFactor: Long('1'),
+  fsUsedSize: 0,
+  fsTotalSize: 0,
+  ok: 1
+}
+test> use consulting
+switched to db consulting
+consulting> db.stats()
+{
+  db: 'consulting',
+  collections: Long('2'),
+  views: Long('0'),
+  objects: Long('6'),
+  avgObjSize: 233.66666666666666,
+  dataSize: 1402,
+  storageSize: 40960,
+  indexes: Long('2'),
+  indexSize: 40960,
+  totalSize: 81920,
+  scaleFactor: Long('1'),
+  fsUsedSize: 202583834624,
+  fsTotalSize: 255204855808,
+  ok: 1
+}
+consulting> use test
+switched to db test
+test> db.numbers.insertOne({a:1})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65ae68524b53a9195a33db91')
+}
+test> db.stats()
+{
+  db: 'test',
+  collections: Long('1'),
+  views: Long('0'),
+  objects: Long('1'),
+  avgObjSize: 29,
+  dataSize: 29,
+  storageSize: 4096,
+  indexes: Long('1'),
+  indexSize: 4096,
+  totalSize: 8192,
+  scaleFactor: Long('1'),
+  fsUsedSize: 202578845696,
+  fsTotalSize: 255204855808,
+  ok: 1
+}
+test> db.numbers.deleteMany({})
+{ acknowledged: true, deletedCount: 1 }
+test> db.numbers.insertOne({a:NumberInt(1)})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65ae68a24b53a9195a33db92')
+}
+test> db.stats()
+{
+  db: 'test',
+  collections: Long('1'),
+  views: Long('0'),
+  objects: Long('1'),
+  avgObjSize: 29,
+  dataSize: 29,
+  storageSize: 36864,
+  indexes: Long('1'),
+  indexSize: 36864,
+  totalSize: 73728,
+  scaleFactor: Long('1'),
+  fsUsedSize: 202579148800,
+  fsTotalSize: 255204855808,
+  ok: 1
+}
+test> db.numbers.insertOne({b:2})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65ae69354b53a9195a33db93')
+}
+test> db.numbers.find()
+[
+  { _id: ObjectId('65ae68a24b53a9195a33db92'), a: 1 },
+  { _id: ObjectId('65ae69354b53a9195a33db93'), b: 2 }
+]
+test> typeof db.numbers.findOne().a
+number
+test> typeof db.numbers.findOne().b
+undefined
+test> typeof db.numbers.findOne({b:2}).b
+number
+test> db.numbers.insertOne({b:3})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65ae699e4b53a9195a33db94')
+}
+test> typeof db.numbers.findOne({b:3}).b
+number
+test> db.numbers.insertOne({b:4.5})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65ae69b74b53a9195a33db95')
+}
+test> typeof db.numbers.findOne({b:4.5}).b
+number
+test> show dbs
+admin       40.00 KiB
+config      72.00 KiB
+consulting  80.00 KiB
+hospital    72.00 KiB
+local       40.00 KiB
+school      56.00 KiB
+test        72.00 KiB
+test> use hospital
+switched to db hospital
+hospital> show collections
+patients
+hospital> db.patients.find()
+[
+  {
+    _id: ObjectId('65ae124f8075a118285f051b'),
+    firstname: 'Mini',
+    lastname: 'Muller',
+    age: 42,
+    history: [
+      { disease: 'Malaria', treatment: 'Anti-Malaria' },
+      { disease: 'diarrhoea', treatment: 'Meds' },
+      { disease: 'rashes', treatment: 'Cream' }
+    ]
+  },
+  {
+    _id: ObjectId('65ae124f8075a118285f051c'),
+    firstname: 'Ike',
+    lastname: 'Bonny',
+    age: 38,
+    history: [
+      { disease: 'Rabies', treatment: 'Anti-Rabies' },
+      { disease: 'Anaemia', treatment: 'Food' },
+      { disease: 'Madness', treatment: 'Prayers' }
+    ]
+  }
+]
+hospital> db.patients.deleteMany()
+MongoshInvalidInputError: [COMMON-10001] Missing required argument at position 0 (Collection.deleteMany)
+hospital> db.patients.deleteMany({})
+{ acknowledged: true, deletedCount: 2 }
+hospital> db.patients.insertOne({name: "Max", age:29, diseaseSummary:"summary-max-1"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65ae81674b53a9195a33db96')
+}
+hospital> db.diseaseSummary.insertOne({_id: "summary-max-1", diseases: ["cold", "broken leg"]})
+{ acknowledged: true, insertedId: 'summary-max-1' }
+hospital> db.diseaseSummary.findOne()
+{ _id: 'summary-max-1', diseases: [ 'cold', 'broken leg' ] }
+hospital> db.diseaseSummary.findOne()._id
+summary-max-1
+hospital> var dsid = db.patients.findOne().diseaseSummary
+
+hospital> dsid
+summary-max-1
+hospital> db.diseaseSummary.findOne({_id:dsid})
+{ _id: 'summary-max-1', diseases: [ 'cold', 'broken leg' ] }
+hospital> db.patients.aggregate([{$lookup:{from:"diseaseSummary", localfield:"diseaseSummary", foreignfield:"diseases". as:"health records"}}])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:112)
+
+> 1 | db.patients.aggregate([{$lookup:{from:"diseaseSummary", localfield:"diseaseSummary", foreignfield:"diseases". as:"health records"}}])
+    |                                                                                                                 ^
+  2 |
+
+hospital> db.patients.aggregate([{$lookup:{from:"diseaseSummary", localfield:"diseaseSummary", foreignfield:"diseases", as:"health records"}}])
+MongoServerError: unknown argument to $lookup: localfield
+hospital> db.patients.aggregate([{$lookup:{from:"diseaseSummary", localField:"diseaseSummary", foreignField:"diseases", as:"health records"}}])
+[
+  {
+    _id: ObjectId('65ae81674b53a9195a33db96'),
+    name: 'Max',
+    age: 29,
+    diseaseSummary: 'summary-max-1',
+    'health records': []
+  }
+]
+hospital> db.patients.aggregate([{$lookup:{from:"diseaseSummary", localField:"diseaseSummary", foreignField:"diseases", as:"health records"}}]).pretty()
+[
+  {
+    _id: ObjectId('65ae81674b53a9195a33db96'),
+    name: 'Max',
+    age: 29,
+    diseaseSummary: 'summary-max-1',
+    'health records': []
+  }
+]
+hospital> use blog
+switched to db blog
+blog> db.users.insertMany([{name: "BestMan", age:32, email:"bestman@test.com"},{name:"Goodluck",age:30,email:"goodluck@test.com"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65af26a54b53a9195a33db97'),
+    '1': ObjectId('65af26a54b53a9195a33db98')
+  }
+}
+blog> db.posts.insertOne({title:"My First Post",text:"A lot has happened and it is well in Jesus name",tag:["new","tech"],creator:ObjectId('65af26a54b53a9195a33db97'), commcomments:[{text:"Love this post", author:ObjectId('65af26a54b53a9195a33db98')}]})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65af27a54b53a9195a33db99')
+}
+blog> db.posts.find()
+[
+  {
+    _id: ObjectId('65af27a54b53a9195a33db99'),
+    title: 'My First Post',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ]
+  }
+]
+blog> db.posts.aggregate([{$lookup:{from:"users", localField:"creator", foreignField:"_id", as:"Creator_details"}}])
+[
+  {
+    _id: ObjectId('65af27a54b53a9195a33db99'),
+    title: 'My First Post',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ],
+    Creator_details: [
+      {
+        _id: ObjectId('65af26a54b53a9195a33db97'),
+        name: 'BestMan',
+        age: 32,
+        email: 'bestman@test.com'
+      }
+    ]
+  }
+]
+blog> db.posts.aggregate([{$lookup:{from:"users", localField:"creator", foreignField:"_id", as:"Creator_details"}}, {$lookup:{from:"users",localField:"creator", foreignField:"_id", as:"creator_details2"}}])
+[
+  {
+    _id: ObjectId('65af27a54b53a9195a33db99'),
+    title: 'My First Post',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ],
+    Creator_details: [
+      {
+        _id: ObjectId('65af26a54b53a9195a33db97'),
+        name: 'BestMan',
+        age: 32,
+        email: 'bestman@test.com'
+      }
+    ],
+    creator_details2: [
+      {
+        _id: ObjectId('65af26a54b53a9195a33db97'),
+        name: 'BestMan',
+        age: 32,
+        email: 'bestman@test.com'
+      }
+    ]
+  }
+]
+blog> db.posts.aggregate([{$lookup:{from:"users", localField:"creator", foreignField:"_id", as:"Creator_details"}}, {$lookup:{from:"users",localField:"comments.author", foreignField:"_id", as:"creator_details2"}}])
+[
+  {
+    _id: ObjectId('65af27a54b53a9195a33db99'),
+    title: 'My First Post',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ],
+    Creator_details: [
+      {
+        _id: ObjectId('65af26a54b53a9195a33db97'),
+        name: 'BestMan',
+        age: 32,
+        email: 'bestman@test.com'
+      }
+    ],
+    creator_details2: [
+      {
+        _id: ObjectId('65af26a54b53a9195a33db98'),
+        name: 'Goodluck',
+        age: 30,
+        email: 'goodluck@test.com'
+      }
+    ]
+  }
+]
+blog> db.posts.drop()
+true
+blog> shoow collections
+Uncaught:
+SyntaxError: Missing semicolon. (1:5)
+
+> 1 | shoow collections
+    |      ^
+  2 |
+
+blog> show collections
+users
+blog> db.posts.insertOne({title:"My First Post",text:"A lot has happened and it is well in Jesus name",tag:["new","tech"],creator:ObjectId('65af26a54b53a9195a33db97'), comments:[{text:"Love this post", author:ObjectId('65af26a54b53a9195a33db98')}]})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65af91a14b53a9195a33db9a')
+}
+blog> const insert = {title:"My First Post",text:"A lot has happened and it is well in Jesus name",tag:["new","tech"],creator:ObjectId('65af26a54b53a9195a33db97'), comments:[{text:"Love this post", author:ObjectId('65af26a54b53a9195a33db98')}]}
+
+blog> db.posts.insertOne(insert)
+{
+  acknowledged: true,
+  insertedId: ObjectId('65af91ff4b53a9195a33db9b')
+}
+blog> const insert = {title:"My First Po",text:"A lot has happened and it is well in Jesus name",tag:["new","tech"],creator:ObjectId('65af26a54b53a9195a33db97'), comments:[{text:"Love this post", author:ObjectId('65af26a54b53a9195a33db98')}]}
+
+blog> db.posts.insertOne(insert)
+{
+  acknowledged: true,
+  insertedId: ObjectId('65af946b4b53a9195a33db9c')
+}
+blog> db,posts.find()
+ReferenceError: posts is not defined
+blog> db.posts.find()
+[
+  {
+    _id: ObjectId('65af91a14b53a9195a33db9a'),
+    title: 'My First Post',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ]
+  },
+  {
+    _id: ObjectId('65af91ff4b53a9195a33db9b'),
+    title: 'My First Post',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ]
+  },
+  {
+    _id: ObjectId('65af946b4b53a9195a33db9c'),
+    title: 'My First Po',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ]
+  }
+]
+blog> let insert = {title:"My First Po",text:"A lot has happened and it is well in Jesus name",tag:["new","tech"],creator:ObjectId('65af26a54b53a9195a33db97'), comments:[{text:"Love this post", author:ObjectId('65af26a54b53a9195a33db98')}]}
+
+blog> db.posts.insertOne(insert)
+{
+  acknowledged: true,
+  insertedId: ObjectId('65af94b04b53a9195a33db9d')
+}
+blog> let inserted = {title:"My First Po",text:"A lot has happened and it is well in Jesus name",tag:["new","tech"],creator:ObjectId('65af26a54b53a9195a33db97'), comments:[{text:"Love theeses post", author:ObjectId('65af26a54b53a9195a33db98')}]}
+
+blog> db.posts.insertOne(inserted)
+{
+  acknowledged: true,
+  insertedId: ObjectId('65af94d14b53a9195a33db9e')
+}
+blog> var inserted = {title:"My First Po",text:"A lot has happened and it is well in Jesus name",tag:["new","tech"],creator:ObjectId('65af26a54b53a9195a33db97'), comments:[{text:"Love theeses post", author:ObjectId('65af26a54b53a9195a33db98')}]}
+
+blog> var inserted = {title:"My First Po",text:"A lot has happened and it is well in Jesus name",tag:["new","techies"],creator:ObjectId('65af26a54b53a9195a33db97'), comments:[{text:"Love theeses post", author:ObjectId('65af26a54b53a9195a33db98')}]}
+
+blog> var insertedness = {title:"My First Po",text:"A lot has happened and it is well in Jesus name",tag:["new","techies"],creator:ObjectId('65af26a54b53a9195a33db97'), comments:[{text:"Love theeses post", author:ObjectId('65af26a54b53a9195a33db98')}]}
+
+blog> db.posts.insertOne(insertedness)
+{
+  acknowledged: true,
+  insertedId: ObjectId('65af95024b53a9195a33db9f')
+}
+blog> db.posts.find()
+[
+  {
+    _id: ObjectId('65af91a14b53a9195a33db9a'),
+    title: 'My First Post',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ]
+  },
+  {
+    _id: ObjectId('65af91ff4b53a9195a33db9b'),
+    title: 'My First Post',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ]
+  },
+  {
+    _id: ObjectId('65af946b4b53a9195a33db9c'),
+    title: 'My First Po',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ]
+  },
+  {
+    _id: ObjectId('65af94b04b53a9195a33db9d'),
+    title: 'My First Po',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love this post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ]
+  },
+  {
+    _id: ObjectId('65af94d14b53a9195a33db9e'),
+    title: 'My First Po',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'tech' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love theeses post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ]
+  },
+  {
+    _id: ObjectId('65af95024b53a9195a33db9f'),
+    title: 'My First Po',
+    text: 'A lot has happened and it is well in Jesus name',
+    tag: [ 'new', 'techies' ],
+    creator: ObjectId('65af26a54b53a9195a33db97'),
+    comments: [
+      {
+        text: 'Love theeses post',
+        author: ObjectId('65af26a54b53a9195a33db98')
+      }
+    ]
+  }
+]
+blog> const validationRules = {
+...   $jsonSchema: {
+...     bsonType: "object",
+...     required: ["name", "age", "salary"],
+...     properties: {
+...       name: {
+...         bsonType: "string",
+...         description: "Name must be a string and is required"
+...       },
+...       age: {
+...         bsonType: "int",
+...         minimum: 0,
+...         description: "Age must be an integer and minimum value is 0"
+...       },
+...       salary: {
+...         bsonType: "double",
+...         minimum: 0,
+...         description: "Salary must be a double and minimum value is 0"
+...       }
+...     }
+...   }
+... }
+
+blog> db.createCollection({ "employees", {
+Uncaught:
+SyntaxError: Unexpected token (1:33)
+
+> 1 | db.createCollection({ "employees", {
+    |                                  ^
+  2 |
+
+blog>   validator: validationRules
+{
+  '$jsonSchema': {
+    bsonType: 'object',
+    required: [ 'name', 'age', 'salary' ],
+    properties: {
+      name: {
+        bsonType: 'string',
+        description: 'Name must be a string and is required'
+      },
+      age: {
+        bsonType: 'int',
+        minimum: 0,
+        description: 'Age must be an integer and minimum value is 0'
+      },
+      salary: {
+        bsonType: 'double',
+        minimum: 0,
+        description: 'Salary must be a double and minimum value is 0'
+      }
+    }
+  }
+}
+blog> db.createCollection({ "employees", {
+Uncaught:
+SyntaxError: Unexpected token (1:33)
+
+> 1 | db.createCollection({ "employees", {
+    |                                  ^
+  2 |
+
+blog>   validator: validationRules
+{
+  '$jsonSchema': {
+    bsonType: 'object',
+    required: [ 'name', 'age', 'salary' ],
+    properties: {
+      name: {
+        bsonType: 'string',
+        description: 'Name must be a string and is required'
+      },
+      age: {
+        bsonType: 'int',
+        minimum: 0,
+        description: 'Age must be an integer and minimum value is 0'
+      },
+      salary: {
+        bsonType: 'double',
+        minimum: 0,
+        description: 'Salary must be a double and minimum value is 0'
+      }
+    }
+  }
+}
+blog> }});
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | }});
+    | ^
+  2 |
+
+blog> db.createCollection({"Employees", {validator: validationRules}})
+Uncaught:
+SyntaxError: Unexpected token (1:32)
+
+> 1 | db.createCollection({"Employees", {validator: validationRules}})
+    |                                 ^
+  2 |
+
+blog> const validationRules = { $jsonSchema: { bsonType: "object", required: ["name", "age", "salary"], properties: { name: { bsonType: "string", description: "Name must be a string and is required" }, age: { bsonType: "int", minimum: 0, description: "Age must be an integer and minimum value is 0" }, salary: { bsonType: "double", minimum: 0, description: "Salary must be a double and minimum value is 0" } } } };
+
+blog> db.createCollection("Employees", {validator: validationRules})
+{ ok: 1 }
+blog>
